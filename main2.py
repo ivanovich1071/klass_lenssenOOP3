@@ -9,9 +9,6 @@ class Animal:
     def eat(self):
         pass
 
-    def sleep(self):
-        pass
-
 class Bird(Animal):
     def __init__(self, name, age, wingspan):
         super().__init__(name, age)
@@ -22,9 +19,6 @@ class Bird(Animal):
 
     def eat(self):
         return "клюет зерно"
-
-    def sleep(self):
-        return "спит на ветке"
 
 class Mammal(Animal):
     def __init__(self, name, age, fur_color):
@@ -37,9 +31,6 @@ class Mammal(Animal):
     def eat(self):
         return "ест корм"
 
-    def sleep(self):
-        return "спит в вальере"
-
 class Reptile(Animal):
     def __init__(self, name, age, scale_pattern):
         super().__init__(name, age)
@@ -51,25 +42,42 @@ class Reptile(Animal):
     def eat(self):
         return "ест насекомых"
 
-    def sleep(self):
-        return "спит в террариуме"
-
 def animal_sound(animals):
     for animal in animals:
         print(animal.make_sound())
 
-def animal_eat(animals):
-    for animal in animals:
-        print(animal.eat())
-def animal_sleep(animals):
-    for animal in animals:
-        print(animal.slip())
+class Zoo:
+    def __init__(self):
+        self.animals = []
+        self.staff = []
 
+    def add_animal(self, animal):
+        self.animals.append(animal)
+
+class ZooKeeper:
+    def feed_animal(self, animal):
+        return f"Feeding {animal.name}"
+
+class Veterinarian:
+    def heal_animal(self, animal):
+        return f"Healing {animal.name}"
+
+# Пример использования
 bird = Bird("тетерев", 2, 10)
 mammal = Mammal("медведь", 5, "brown")
 reptile = Reptile("Змея", 3, "stripped")
 
-animals = [bird, mammal, reptile]
-animal_sound(animals)
-animal_eat(animals)
-animal_sleep(animals)
+zoo = Zoo()
+zoo.add_animal(bird)
+zoo.add_animal(mammal)
+zoo.add_animal(reptile)
+
+animals_in_zoo = zoo.animals
+animal_sound(animals_in_zoo)
+
+zookeeper = ZooKeeper()
+veterinarian = Veterinarian()
+
+for animal in animals_in_zoo:
+    print(zookeeper.feed_animal(animal))
+    print(veterinarian.heal_animal(animal))
