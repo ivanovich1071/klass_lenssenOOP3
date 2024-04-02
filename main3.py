@@ -66,7 +66,6 @@ def animal_eat(animals):
 def animal_sleep(animals):
     for animal in animals:
         print(animal.sleep())
-
 class Zoo:
     def __init__(self):
         self.animals = []
@@ -81,7 +80,7 @@ class Zoo:
     def to_json(self):
         return {
             "animals": [animal.__dict__ for animal in self.animals],
-            "employees": [employee.__dict__ for employee in self.employees]
+            "employees": [(employee[0], employee[1].__class__.__name__) for employee in self.employees]
         }
 
 class ZooKeeper:
@@ -92,9 +91,6 @@ class Veterinarian:
     def heal_animal(self, animal):
         return f"Лечил {animal.name}"
 
-#def save_zoo(zoo):
-   # with open('zoo.json', 'w') as file:
-       # json.dump(zoo, file)
 def save_zoo(zoo):
     with open('zoo.json', 'w') as file:
         json.dump(zoo.to_json(), file, indent=4)
