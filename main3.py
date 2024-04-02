@@ -134,7 +134,10 @@ def main():
             zoo.add_employee((name, employee))
 
     save_zoo(zoo)
-
+def interact_with_animal(animal):
+    print(animal.make_sound())
+    print(animal.eat())
+    print(animal.sleep())
 if __name__ == "__main__":
     print("Здравствуйте, вы смотритель зоопарка")
     main()
