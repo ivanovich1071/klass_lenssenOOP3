@@ -1,0 +1,10 @@
+медведь, 5
+лев, 7
+орел, 3
+страус, 2
+варан, 4
+крокодил, 6
+Игорь, <__main__.ZooKeeper object at 0x00000187CD7C2C30>
+Дина, <__main__.ZooKeeper object at 0x00000187CD7C2C60>
+Алиса, <__main__.Veterinarian object at 0x00000187CD7C2C90>
+Егор, <__main__.Veterinarian object at 0x00000187CD7C2CC0>
